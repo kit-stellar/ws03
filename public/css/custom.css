@@ -1,0 +1,195 @@
+/* ============================================================
+   WORKOPIA — CUSTOM STYLESHEET
+   Pangalan ng Student: ______________________________
+   Theme Name:          ______________________________
+   ============================================================ */
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+  /* 
+    Know site color - ColorZilla 
+    Know site font- WhatFont
+    Know site CSS - CSS Peeper
+    Know site spacing - Pesticide
+  */
+
+
+/* ----------------------------------------------------------------
+   SECTION 1: MGA KULAY (Colors)
+   ----------------------------------------------------------------
+   Palitan ang bawat hex code ng kulay na gusto mo.
+   Tip: https://coolors.co — para pumili ng color palette
+        https://htmlcolorcodes.com — para makita ang hex codes
+   ---------------------------------------------------------------- */
+
+:root {
+  --color-header:       #009688;   /* Header at navigation bar */
+  --color-accent:       #00BCD4;   /* "Post a Job" button at mga highlight */
+  --color-page-bg:      #f3f3f3;   /* Background ng buong page */
+  --color-card-bg:      #f3f3f3;   /* Background ng mga card/box */
+  --color-heading:      #212121;   /* Kulay ng mga title at heading */
+  --color-body-text:    #757575;   /* Regular na body text */
+  --color-link:         #fff;   /* Mga clickable na links */
+  --color-tag-bg:       #fff;   /* Background ng mga tag/badge */
+  --color-tag-text:     #000000;   /* Text ng mga tag/badge */
+  --color-footer:       #009688;   /* Footer background */
+  --showcase-overlay:   rgba(255, 255, 255, 0.5); /* Hero banner overlay
+                                               0.0 = transparent
+                                               0.9 = halos itim */
+}
+
+
+/* ----------------------------------------------------------------
+   SECTION 2: MGA FONT (Typography)
+   ----------------------------------------------------------------
+   Palitan ng font name na gusto mo.
+   Kung gagamit ng Google Font, i-import muna sa taas ng file.
+
+   Halimbawa ng built-in fonts (hindi na kailangan ng import):
+     'Georgia', serif
+     'Arial', sans-serif
+     'Verdana', sans-serif
+     'Times New Roman', serif
+     'Courier New', monospace
+   ---------------------------------------------------------------- */
+
+:root {
+  --font-heading: 'Oswald', sans-serif;      /* Para sa mga title at heading */
+  --font-body:    'Raleway', sans-serif;   /* Para sa regular na text */
+}
+
+
+/* ----------------------------------------------------------------
+   SECTION 3: HUGIS AT ESTILO (Shape & Style)
+   ----------------------------------------------------------------
+   --border-radius:
+     0px      = matuwid / sharp corners
+     4px      = konting rounding
+     8px      = medyo rounded
+     16px     = malakas na rounding
+     9999px   = pill shape / fully round
+
+   --card-shadow:
+     none                           = walang shadow
+     0 2px 8px rgba(0,0,0,0.08)    = mahinang shadow
+     0 4px 16px rgba(0,0,0,0.20)   = malakas na shadow
+   ---------------------------------------------------------------- */
+
+:root {
+  --border-radius: 8px;
+  --card-shadow:   0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+
+
+
+/* ================================================================
+   === HUWAG I-EDIT ANG SECTION NA ITO (unless gusto mong advanced!) ===
+   === Ito ang code na gumagamit ng iyong mga variables sa itaas.  ===
+   ================================================================ */
+
+body {
+  font-family: var(--font-body) !important;
+  background-color: var(--color-page-bg) !important;
+  color: var(--color-body-text) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading) !important;
+  color: var(--color-heading) !important;
+}
+
+a {
+  color: var(--color-link) !important;
+}
+
+header {
+  background-color: var(--color-header) !important;
+}
+
+.bg-blue-900,
+.bg-blue-800 {
+  background-color: var(--color-header) !important;
+}
+
+.bg-yellow-500 {
+  background-color: var(--color-accent) !important;
+}
+
+.text-yellow-500 {
+  color: var(--color-accent) !important;
+}
+
+.hover\:bg-yellow-600:hover {
+  background-color: var(--color-accent) !important;
+  filter: brightness(0.88);
+}
+
+.bg-blue-500 {
+  background-color: var(--color-accent) !important;
+}
+
+.bg-white {
+  background-color: var(--color-card-bg) !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--card-shadow) !important;
+}
+
+.bg-indigo-100 {
+  background-color: var(--color-tag-bg) !important;
+}
+
+.text-indigo-700,
+.text-indigo-800 {
+  color: var(--color-tag-text) !important;
+}
+
+.text-blue-700,
+.text-blue-500,
+.text-blue-900 {
+  color: var(--color-link) !important;
+}
+
+button,
+.rounded,
+.rounded-lg,
+.rounded-full {
+  border-radius: var(--border-radius) !important;
+}
+
+.overlay {
+  background-color: var(--showcase-overlay) !important;
+}
+
+footer,
+.bg-indigo-900 {
+  background-color: var(--color-footer) !important;
+}
+
+.bg-gray-100 {
+  background-color: var(--color-page-bg) !important;
+}
+
+
+/* ----------------------------------------------------------------
+   ADVANCED ZONE — Para sa gustong mag-explore pa!
+   ----------------------------------------------------------------
+   Alisin ang /* at */ para i-activate ang isang rule.
+   ---------------------------------------------------------------- */
+
+/* Hover effect sa mga link */
+/* a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+} */
+
+/* Kulay ng input fields */
+/* input, select, textarea {
+  border-color: var(--color-link) !important;
+  border-radius: var(--border-radius) !important;
+} */
+
+/* Kulay ng success badge */
+/* .bg-green-100 { background-color: #d1fae5 !important; }
+   .text-green-800 { color: #065f46 !important; } */
