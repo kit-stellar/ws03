@@ -1,7 +1,14 @@
 <?php
 
+/**
+ * Get the base path
+ * 
+ * @param string $path
+ * @return string
+ */
+
 function basePath($path = '') {
-    return __DIR__ . '/' . $path;
+    return BASE_DIR . '/' . $path;
 }
 
 /**
@@ -23,14 +30,12 @@ function loadView($name) {
  * 
  */
 function loadPartial($name) {
-    require basePath ("views/partials/{$name}.php");
-}
-
-$partialPath = basePath('views/partials/{$name}.php');
-if (file_exists($partialPath)) {
-    require $partialPath;
-} else {
-    echo "Partial '{$name}' not found!";
+    $partialPath = basePath("views/partials/{$name}.php");
+    if (file_exists($partialPath)) {
+        require $partialPath;
+    } else {
+        echo "Partial '{$name}' not found!";
+    }
 }
 
 ?>
