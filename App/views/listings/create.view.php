@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/custom.css" />
+        <title>Prosple</title>
     </head>
     <body>
     <!-- Post a Job Form Box -->
@@ -11,16 +19,22 @@
             <div class="message bg-green-100 p-3 my-3">
             This is a success message.
             </div> -->
-            <form method="POST">
+            <form method="POST" action="/listings">
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
                 Job Info
             </h2>
+            <?php if(isset($errors)) : ?>
+                <?php foreach($errors as $error) : ?>
+                    <div class="message bg-red-100 my-3"><?= $error ?></div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             <div class="mb-4">
                 <input
                 type="text"
                 name="title"
                 placeholder="Job Title"
-                class="w-full px-4 py-2 border rounded focus:outline-none"
+                class="w-full px-4 py-2 border rounded focus:outline-none" 
+                value="<?= $listing['title'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -28,14 +42,15 @@
                 name="description"
                 placeholder="Job Description"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
-                ></textarea>
+                ><?= $listing['description'] ?? '' ?></textarea>
             </div>
             <div class="mb-4">
                 <input
                 type="text"
                 name="salary"
                 placeholder="Annual Salary"
-                class="w-full px-4 py-2 border rounded focus:outline-none"
+                class="w-full px-4 py-2 border rounded focus:outline-none" 
+                value="<?= $listing['salary'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -43,7 +58,8 @@
                 type="text"
                 name="requirements"
                 placeholder="Requirements"
-                class="w-full px-4 py-2 border rounded focus:outline-none"
+                class="w-full px-4 py-2 border rounded focus:outline-none" 
+                value="<?= $listing['requirements'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -51,7 +67,17 @@
                 type="text"
                 name="benefits"
                 placeholder="Benefits"
-                class="w-full px-4 py-2 border rounded focus:outline-none"
+                class="w-full px-4 py-2 border rounded focus:outline-none" 
+                value="<?= $listing['benefits'] ?? '' ?>"
+                />
+            </div>
+            <div class="mb-4">
+                <input
+                type="text"
+                name="tags"
+                placeholder="Tags"
+                class="w-full px-4 py-2 border rounded focus:outline-none" 
+                value="<?= $listing['tags'] ?? '' ?>"
                 />
             </div>
             <h2 class="text-2xl font-bold mb-6 text-center text-gray-500">
@@ -63,6 +89,7 @@
                 name="company"
                 placeholder="Company Name"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
+                value ="<?= $listing['company'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -71,6 +98,7 @@
                 name="address"
                 placeholder="Address"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
+                value="<?= $listing['address'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -79,6 +107,7 @@
                 name="city"
                 placeholder="City"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
+                value="<?= $listing['city'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -87,6 +116,7 @@
                 name="state"
                 placeholder="State"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
+                value="<?= $listing['state'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -95,6 +125,7 @@
                 name="phone"
                 placeholder="Phone"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
+                value="<?= $listing['phone'] ?? '' ?>"
                 />
             </div>
             <div class="mb-4">
@@ -103,6 +134,7 @@
                 name="email"
                 placeholder="Email Address For Applications"
                 class="w-full px-4 py-2 border rounded focus:outline-none"
+                value="<?= $listing['email'] ?? '' ?>"
                 />
             </div>
             <button

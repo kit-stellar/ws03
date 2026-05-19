@@ -1,0 +1,16 @@
+{
+    "name": "kit-stellar/ws03.git",
+    "description": "Job seeker application",
+    "authors": [
+        {
+            "name": "Kurt Arguelles",
+            "email": "kurtarguelles.neust@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Framework\\": "Framework/",
+            "App\\": "App/"
+        }
+    }
+}
