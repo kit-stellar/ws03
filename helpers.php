@@ -1,85 +1,51 @@
 <?php
-
-/**
- * Get the base path
- * 
- * @param string $path
- * @return string
- */
-
-function basePath($path = '') {
-    return __DIR__ . '/' . $path;
-}
-
-/**
- * load Q view
- * 
- * @param string $name
- * @return void
- * 
- */
-function loadView($name, $data = []) {
-    $viewPath = basePath("App/views/{$name}.view.php");
-    
-    if (file_exists($viewPath)) {
-        extract($data);
-        require $viewPath;
-    } else {
-        echo "View {$name} not found!";
+    function basePath(string $path): string {
+        return BASE_PATH . '/' . $path;
     }
-}
 
-/**
- * load A partial
- * 
- * @param string $name
- * @return void
- * 
- */
-function loadPartial($name) {
-    $partialPath = basePath("App/views/partials/{$name}.php");
-    if (file_exists($partialPath)) {
-        require $partialPath;
-    } else {
-        echo "Partial '{$name}' not found!";
+    function loadView($name, $data = []) {
+        $viewPath = basePath('app/Views/' . $name . '.view.php');
+        if (file_exists($viewPath)) {
+            extract($data);
+            require $viewPath;
+        } else {
+            die("View not found: " . $name);
+        }
     }
-}
 
-function inspect($value) {
-    echo '<pre>';
-    var_dump($value);
-    echo '</pre>';
-}
+    function loadPartial($name, $data = []) {
+        $partialPath = basePath('app/Views/Partials/' . $name . '.php');
+        if (file_exists($partialPath)) {
+            extract($data);
+            require $partialPath;
+        } else {
+            die("Partial not found: " . $name);
+        }
+    }
 
-function formatSalary($salary) {
-    return '$' . number_format(floatval($salary));
-}
+    function inspect($value) {
+        echo '<pre>';
+        var_dump($value);
+        echo '</pre>';
+    }
 
-function inspectAndDie($value) {
-    echo '<pre>';
-    die(var_dump($value));
-    echo '</pre>';
-}
+    function inspectAndDie($value) {
+        echo '<pre>';
+        var_dump($value);
+        echo '</pre>';
+        die();
+    }
 
-/**
- * Sanitize data
- * 
- * @param string $dirty
- * @return string
- */
+    function formatSalary($salary) {
+        return '$' . number_format((float)$salary, 2, '.', ',');
+    }
 
-function sanitize($dirty) {
-    return filter_var(trim($dirty), FILTER_SANITIZE_SPECIAL_CHARS);
-}
+    function sanitize($dirty) {
+        return filter_var(trim($dirty ?? ''), FILTER_SANITIZE_SPECIAL_CHARS);
+    }  
 
-/**
- * Redirect to a given url
- * 
- * @param string $url
- * @return void
- */
-function redirect($url) {
-    header("Location: {$url}");
-}
-
+    function redirect($url) {
+        header("Location: {$url}");
+        exit();
+    }
 ?>

@@ -1,15 +1,17 @@
-<?php
-  loadPartial('head'); 
-  loadPartial('navbar'); 
-  loadPartial('topbanner'); 
-?>
+<?php loadPartial('head'); ?>
+<?php loadPartial('navbar'); ?>
 
-<section>
-  <div class="container mx-auto p-4 mt-4">
-    <div class="text-center text-3xl mb-4 font-bold border border-gray-300 p-3"><?= $status ?></div>
-    <p class="text-center text-2xl mb-4">
-      <?= $message ?>
-    </p>
-    <a class="block text-center" href="/listings">Go Back To Listings </a>
+<section class="flex justify-center items-center mt-20">
+  <div class="bg-white p-10 rounded shadow text-center">
+    <h1 class="text-6xl font-bold text-red-500"><?= $status ?></h1>
+    <p class="text-2xl mt-4"><?= $message ?></p>
+    <a href="/" class="mt-6 inline-block bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 mr-3">
+      Go Back Home
+    </a>
+    <a href="/listings" class="mt-6 inline-block text-indigo-600 underline block">
+      Go back to listings
+    </a>
   </div>
 </section>
+
+<?php loadPartial('footer'); ?>

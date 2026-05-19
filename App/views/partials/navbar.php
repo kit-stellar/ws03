@@ -1,16 +1,28 @@
-<header class="bg-blue-900 text-white p-4">
-      <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-semibold">
-          <a href="/">Prosple</a>
-        </h1>
-        <nav class="space-x-4">
-          <a href="/ws02/login" class="text-white hover:underline">Login</a>
-          <a href="/ws02/register" class="text-white hover:underline">Register</a>
-          <a
-            href="/listings/create"
-            class="bg-yellow-500 hover:bg-yellow-600 text-black px-4 py-2 rounded hover:shadow-md transition duration-300"
-            ><i class="fa fa-edit"></i> Post a Job</a
-          >
-        </nav>
+<?php
+    use Framework\Session;
+?>
+
+<header class="site-header">
+  <div class="container mx-auto p-5">
+    <div class="flex items-center justify-between py-6">
+      <a href="/" class="brand text-white text-4xl font-bold">Prosple</a>
+      <div class="nav-actions">
+        <?php if (Session::has('user')) : ?>
+          <div class="flex items-center gap-4">
+            <span class="text-white">Welcome, <?= Session::get('user')['name'] ?></span>
+            <a href="/listings/create" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">Post a Job</a>
+            <form method="POST" action="/logout" style="display:inline">
+              <button type="submit" class="text-white hover:underline">Logout</button>
+            </form>
+          </div>
+        <?php else : ?>
+          <div class="flex items-center gap-4">
+            <a href="/login" class="text-white hover:underline">Login</a>
+            <a href="/register" class="text-white hover:underline">Register</a>
+          </div>
+        <?php endif; ?>
       </div>
-    </header>
+    </div>
+  </div>
+</header>
+<main class="site-main">
